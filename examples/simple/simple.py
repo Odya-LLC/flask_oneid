@@ -16,7 +16,7 @@ def create_app():
         return redirect(url_for('index'))
     
     with app.test_request_context():
-        oneid.Set_Callback(url_for('login'))
+        oneid.Set_Callback(url_for('params'))
     return app
 
 app = create_app()
