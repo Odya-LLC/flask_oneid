@@ -13,6 +13,7 @@ class OneID:
     __oneid_url__ = "https://sso.egov.uz/sso/oauth/Authorization.do"
     __callbakc_url__ = "/"
     __one_id_keys = []
+    ONEID_LOGIN_URL = "/oneid/login"
     def __init__(self, app=None):
         if app is not None:
             self.init_app(app)
