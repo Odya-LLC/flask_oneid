@@ -9,7 +9,7 @@ from setuptools import setup
 
 setup(
     name='Flask-OneID',
-    version='1.0',
+    version='1.0.0',
     url='http://example.com/flask-sqlite3/',
     license='MIT',
     author='Odya',
