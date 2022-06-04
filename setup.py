@@ -10,7 +10,7 @@ from setuptools import setup
 setup(
     name='Flask-OneID',
     version='1.0.0',
-    url='http://example.com/flask-sqlite3/',
+    url='https://github.com/Odya-LLC/flask_oneid',
     license='MIT',
     author='Odya',
     author_email='support@odya.uz',
