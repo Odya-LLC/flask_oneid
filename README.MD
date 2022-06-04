@@ -11,6 +11,9 @@ OneID integration for Flask application
 
 ## How it Works
 
+### Install 
+
+`pip install git+https://github.com/Odya-LLC/flask_oneid`
 
 ### Add your credentials from OneID to config file
 
