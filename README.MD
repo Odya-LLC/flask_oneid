@@ -1,5 +1,7 @@
 # Flask-OneID
 
+![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/Odya-LLC/flask_oneid/OneID%20test/main)
+
 > Only for Uzbekistan
 
 OneID integration for Flask application
