@@ -8,11 +8,9 @@
 
 import json, requests
 from flask import Blueprint, request, redirect, jsonify, url_for, session
-from .exeptions import Flask_ONEID_Exception
+from .exceptions import Flask_ONEID_Exception
 class OneID:
-    __oneid_url__ = "https://sso.egov.uz/sso/oauth/Authorization.do"
-    __callbakc_url__ = "/"
-    __one_id_keys = []
+
     ONEID_LOGIN_URL = "/oneid/login"
     def __init__(self, app=None):
         if app is not None:
@@ -29,6 +27,9 @@ class OneID:
 
        
         """        
+        self.__oneid_url__ = "https://sso.egov.uz/sso/oauth/Authorization.do"
+        self.__callback_url = "/"
+        self.__one_id_keys = []
         self.__client_id__ = app.config.get('ONEID_LOGIN')
         if self.__client_id__ is None:
             raise Flask_ONEID_Exception("ONEID_LOGIN is not set, please set it in config.py")
@@ -53,10 +54,9 @@ class OneID:
                 elif type(value) == list:
                     for item in value:
                         params += key + "=" + item + "&"
-            return redirect(self.__callbakc_url__+params)
+            return redirect(self.__callback_url+params)
         @oneid.route('/auth', methods=['GET'])
         def oneid_auth():
-            #return jsonify(request.args)
             code = request.args.get('code')
             self.__oneid_authorize__ = self.__oneid_url__ + "?grant_type=one_authorization_code&client_id=%s&client_secret=%s&redirect_uri=%s&code=%s"%(self.__client_id__,self.__client_secret__,self.__redirect__,code)
             x = requests.post(self.__oneid_authorize__)
@@ -90,6 +90,10 @@ class OneID:
         Args:
             callback_url (string): Callback url for redirect with data from OneID
         """        
-        self.__callbakc_url__ = callback_url  
+        self.__callback_url = callback_url
+    @property
+    def oneid_login(self):
+        return self.ONEID_LOGIN_URL
+    
 
     
