@@ -1,0 +1,4 @@
+flask
+pip-chill
+pytest
+requests
