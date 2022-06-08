@@ -12,7 +12,7 @@ setup(
     version='1.0.0',
     url='https://github.com/Odya-LLC/flask_oneid',
     license='MIT',
-    author='Odya',
+    author='odya',
     author_email='support@odya.uz',
     description='OneID integration with Flask application, (only for Uzbekistan)',
     long_description=__doc__,
